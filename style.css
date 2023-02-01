@@ -12,14 +12,34 @@ h1 {
   justify-content: space-around;
   border-top: 5px solid black;
   border-bottom: 5px solid black;
-  padding: 25px
+  padding: 25px;
+  background-image: linear-gradient(to bottom right,#85C1E9, #1A5276 );
+}
+
+a{
+  color: white;
+}
+
+a:hover{
+  color:white;
+  text-decoration: none;
+}
+
+a:active{
+  color:white;
+  text-decoration: none;
+}
+
+a:link{
+  color:white;
+  text-decoration: none;
 }
 
 .heading {
   display: flex;
   justify-content: space-around;
   border-top: 5px solid black;
-  background-color: rgba(76, 175, 80, 0.3)
+  background-color: #1F618D;
 }
 
 @media screen and (max-width: 600px) {

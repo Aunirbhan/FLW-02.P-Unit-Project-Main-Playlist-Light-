@@ -1,6 +1,8 @@
 // task 5: read through the JavaScript starter code to determine where each given function is declared and where each given function is called.
 // button variable
 let add = document.querySelector(".add");
+let clear = document.querySelector(".clear");
+let remove = document.querySelector(".remove");
 
 
 // task 6: declare variables for your display divs: the image url, song name, artist, and song link. Go back to the HTML to check that you are using the correct class names.
@@ -120,7 +122,12 @@ function displaySongInfo() {
 }
 
 
-
+function removeSongInfo(){
+  imageContainer.removeChild(newImg)
+  songNameContainer.removeChild(newName)
+  artistContainer.removeChild(newArtist)
+  songLinkContainer.removeChild(newLink)
+}
 
 
 // click event to add and display songs
@@ -128,6 +135,17 @@ add.onclick = function() {
   emptyDisplay();
   addSongInfo();
   displaySongInfo();
+};
+
+// remove.onclick = function() {
+//   emptyDisplay();
+//   addSongInfo();
+//   displaySongInfo();
+//   removeSongInfo();
+// };
+
+clear.onclick = function() {
+  emptyDisplay();
 };
 
 // function call to display stored songs

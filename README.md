@@ -60,9 +60,9 @@ What to display your song data in:
 
 ## JavaScript: Refactor Loops to Display Info
 
-15. [ ] Update your `addSongInfo` function so the input values are saved in as values in a new object.
-16. [ ] Update your `.push()` so the input object is added to your array of objects.
-17. [ ] Update your loops based on your new array of objects.
+15. [x] Update your `addSongInfo` function so the input values are saved in as values in a new object.
+16. [x] Update your `.push()` so the input object is added to your array of objects.
+17. [x] Update your loops based on your new array of objects.
 
 
 ## Project Extensions:

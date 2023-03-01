@@ -97,22 +97,78 @@ let playlist = [song0, song1, song2, song3, song4]
 
 
 function addSongInfo() {
-
 // task 9: declare a variable to save the user input of the image url. Declare three more variables that save user input: One for the song names, one for the artists, and a last one for the song links.
-// let image = document.querySelector(".image");
-// let song = document.querySelector(".song-name");
-// let artist = document.querySelector(".artist");
-// let link = document.querySelector(".song-link");
+let image = document.querySelector(".image");
+let song = document.querySelector(".song-name");
+let artist = document.querySelector(".artist");
+let link = document.querySelector(".song-link");
+
+newObject = {
+  name:song.value,
+  artist:artist.value,
+  image:image.value,
+  link:link.value,
+}
+  
+playlist.push(newObject);
+console.log(playlist[playlist.length-1]);
+
+
 
 // task 10: use `.push()` to add each input value to the correct array.
 // imageArray.push(image.value);
 // songNameArray.push(song.value);
 // artistArray.push(artist.value);
 // songLinkArray.push(link.value);
-// }
+}
 
 
+function displaySongInfo() {
+  for(i=0;i<playlist.length;i++){
+    let newName = document.createElement("p");
+      newName.innerHTML = playlist[i].name;
+      songNameContainer.appendChild(newName);
 
+    let newArtist = document.createElement("p");
+      newArtist.innerHTML = playlist[i].artist;
+      artistContainer.appendChild(newArtist);
+    
+    let newImg = document.createElement("img");
+      newImg.src = playlist[i].image;
+      imageContainer.appendChild(newImg);
+
+    let newLink = document.createElement("a");
+      newLink.target = "_blank";
+      newLink.href = playlist[i].link;
+      newLink.innerHTML = "Song Link"
+      songLinkContainer.appendChild(newLink);
+  }
+
+  
+// // task 8: loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song links.
+  // for(let i=0;i<imageArray.length;i++){
+  //   let newImg = document.createElement("img");
+  //   newImg.src = imageArray[i];
+  //   imageContainer.appendChild(newImg);
+  // }
+  // for(let i=0;i<songLinkArray.length;i++){
+  //     let newLink = document.createElement("a");
+  //     newLink.href = songLinkArray[i];
+  //     // newLink.innerHTML = `${songNameArray[i]} Link`
+  //     newLink.innerHTML = "Link"
+  //     songLinkContainer.appendChild(newLink);
+  // }
+  // for(let i=0;i<artistArray.length;i++){
+  //   let newArtist = document.createElement("p");
+  //   newArtist.innerHTML = artistArray[i];
+  //   artistContainer.appendChild(newArtist);
+  // }
+  // for(let i=0;i<songNameArray.length;i++){
+  //   let newName = document.createElement("p");
+  //   newName.innerHTML = songNameArray[i];
+  //   songNameContainer.appendChild(newName);
+  // }
+}
 
 /******** this function empties the display divs each time the button is clicked so that your playlist does not repeatedly add the data too many times. Where should this function be placed???********/
 function emptyDisplay() {
@@ -122,48 +178,6 @@ function emptyDisplay() {
   songLinkContainer.innerHTML = "";
 }
 
-
-
-
-function displaySongInfo() {
-
-// // task 8: loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song links.
-  for(let i=0;i<imageArray.length;i++){
-    let newImg = document.createElement("img");
-    newImg.src = imageArray[i];
-    imageContainer.appendChild(newImg);
-  }
-  for(let i=0;i<songLinkArray.length;i++){
-      let newLink = document.createElement("a");
-      newLink.href = songLinkArray[i];
-      // newLink.innerHTML = `${songNameArray[i]} Link`
-      newLink.innerHTML = "Link"
-      songLinkContainer.appendChild(newLink);
-  }
-  for(let i=0;i<artistArray.length;i++){
-    let newArtist = document.createElement("p");
-    newArtist.innerHTML = artistArray[i];
-    artistContainer.appendChild(newArtist);
-  }
-  for(let i=0;i<songNameArray.length;i++){
-    let newName = document.createElement("p");
-    newName.innerHTML = songNameArray[i];
-    songNameContainer.appendChild(newName);
-  }
-
-
-
-}
-
-
-function removeSongInfo(){
-  imageContainer.removeChild(newImg)
-  songNameContainer.removeChild(newName)
-  artistContainer.removeChild(newArtist)
-  songLinkContainer.removeChild(newLink)
-}
-
-
 // click event to add and display songs
 add.onclick = function() {
   emptyDisplay();
@@ -171,14 +185,8 @@ add.onclick = function() {
   displaySongInfo();
 };
 
-// remove.onclick = function() {
-//   emptyDisplay();
-//   addSongInfo();
-//   displaySongInfo();
-//   removeSongInfo();
-// };
-
 clear.onclick = function() {
+  playlist = [];
   emptyDisplay();
 };
 
